@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    
+    <title>Log In</title>
+
+    <!-- style css -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+    
+<body>
+    <div class="form-wrapper">
+        <h1>Log In</h1>
+        <form method = "post">
+            {% csrf_token %}
+
+        {% if error %}
+            <div class="dialogbox">
+                <div class="body">
+                <span class="tip tip-left"></span>
+                <div class="message">
+                    <span>{{ error }}</span>
+                </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="form-item">
+            <label for="Username"></label>
+            <input type="text" name="mobile" required="required" placeholder="Mobile:+123456789">
+        </div>
+        <div class="button-panel">
+            <input type="submit" class="button" value="Send OTP">
+        </div>
+        </form>
+        <div class="form-footer">
+        <p><a href="{% url 'register' %}">Create an account</a></p>
+        </div>
+    </div>
+</body>
+</html>
